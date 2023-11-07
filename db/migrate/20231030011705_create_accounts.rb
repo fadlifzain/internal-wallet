@@ -5,6 +5,8 @@ class CreateAccounts < ActiveRecord::Migration[7.1]
       t.string :username
       t.string :avatar_url
       t.string :type
+      t.string :password_digest
+      t.string :token
 
       t.references :team, foreign_key: { to_table: :accounts }
       t.timestamps

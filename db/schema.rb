@@ -16,19 +16,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_30_013020) do
     t.string "username"
     t.string "avatar_url"
     t.string "type"
+    t.string "password_digest"
+    t.string "token"
     t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_accounts_on_team_id"
-  end
-
-  create_table "auths", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
-    t.string "token"
-    t.datetime "expired_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "wallets", force: :cascade do |t|
