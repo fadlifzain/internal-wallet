@@ -6,6 +6,9 @@ class Account < ApplicationRecord
     validates :password, presence: true, length: { in: 6..20 }, on: :create
     validates :username, presence: true, length: { in: 4..10 }, uniqueness: true
 
+    after_create :create_wallet
+
+    has_one :wallet
 
     def auth(password)
         allowed = authenticate(password)
@@ -17,5 +20,11 @@ class Account < ApplicationRecord
     end
 
     def transfer_to(wallet_id)
+    end
+
+    private
+
+    def create_wallet
+        self.create_wallet!
     end
 end

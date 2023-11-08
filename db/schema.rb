@@ -25,7 +25,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_30_013020) do
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.decimal "balance"
+    t.string "wallet_id"
+    t.integer "balance_cents", default: 0, null: false
+    t.string "balance_currency", default: "USD", null: false
     t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
