@@ -14,6 +14,12 @@ class AuthController < ApplicationController
         return render json: { message: "Login successful", token: user.token}, status: :ok
     end
 
+    def logout
+        @@user.update(token: nil)
+
+        return render json: { message: "Logout successful" }, status: :ok
+    end
+
     private
 
     def login_params

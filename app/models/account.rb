@@ -15,11 +15,8 @@ class Account < ApplicationRecord
 
         raise "Invalid Credentials" unless allowed
 
-        secret = "#{username}-#{password}-#{BCrypt::Password.create(ENV["SECRET"])}"
+        secret = "#{'%05d' % rand(0..99999)}-#{username}-#{password}-#{'%05d' % rand(0..99999)}-#{ENV["SECRET"]}"
         self.update(token: Base64.encode64(secret))
-    end
-
-    def transfer_to(wallet_id)
     end
 
     private
