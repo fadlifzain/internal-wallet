@@ -6,6 +6,15 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   post "login", to: "auth#login"
+  delete "logout", to: "auth#logout"
+
+  resources :transaction, only: [:index] do
+    collection do
+      post "transfer"
+      post "withdraw"
+      post "deposit"
+    end
+  end
 
   # Defines the root path route ("/")
   # root "posts#index"
