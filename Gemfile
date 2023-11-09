@@ -32,6 +32,11 @@ gem "bootsnap", require: false
 # Help handling money problem
 gem "money-rails", "~> 1.12"
 
+# Help to send HTTP Request
+gem "httparty"
+
+gem "latest_stock_price", path: "./"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
